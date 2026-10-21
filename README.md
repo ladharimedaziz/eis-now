@@ -1,6 +1,6 @@
 # EIS NOW
 
-The website for EIS NOW, the student newspaper.
+The website for EIS NOW, the student newspaper: https://ladharimedaziz.github.io/eis-now/
 
 Plain HTML, CSS and JavaScript on GitHub Pages, with a small Supabase database behind it for the stories. No build step.
 
