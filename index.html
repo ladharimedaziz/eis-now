@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>EIS NOW</title>
+  <meta name="description" content="EIS NOW, the student newspaper of EIS.">
+  <meta name="theme-color" content="#08080A">
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Silkscreen&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/desk.css">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("eis-theme") || "dark"; } catch (e) {}
+  </script>
+  <script src="js/config.js" defer></script>
+  <script src="js/demo.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/desk.js" defer></script>
+</head>
+<!--
+  You're reading the source. Most people never do.
+  Not everything we know makes it into print. Some of it is hidden in plain sight.
+  Start with the ticker. Finish at #case.
+-->
+<body>
+
+  <button class="tv" id="tv" type="button" aria-label="Power on EIS NOW">
+    <span class="tv-beam"></span>
+    <span class="tv-static"></span>
+    <span class="tv-bars"></span>
+    <span class="tv-logo"></span>
+    <span class="tv-label">TUNING IN&hellip;</span>
+    <span class="tv-hint">Tap to power on</span>
+  </button>
+
+  <div class="sky" aria-hidden="true"><div class="figures" id="figures"></div></div>
+
+  <aside class="side">
+    <a class="side-logo" id="sideLogo" href="#top" aria-label="EIS NOW home"></a>
+    <nav class="side-nav" id="sideNav"></nav>
+    <p class="side-foot" id="sideIssue"></p>
+    <button class="editor-btn" type="button" data-desk>Editor</button>
+  </aside>
+
+  <header class="top" id="top">
+    <a class="brand" href="#top" aria-label="EIS NOW home"></a>
+    <nav class="top-nav" id="topNav"></nav>
+    <button class="theme" id="theme" type="button" aria-label="Light mode"></button>
+  </header>
+
+  <div class="ticker" aria-label="Headlines">
+    <span class="ticker-live">LIVE</span>
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="on-air"><i></i> ON AIR</p>
+        <h1 id="heroTitle"></h1>
+        <p class="lede" id="heroLede"></p>
+        <div class="actions">
+          <a class="btn solid" href="#stories">Read the latest</a>
+          <a class="btn glass" href="#crew">Meet the crew</a>
+        </div>
+      </div>
+      <div class="screen glass-card" id="issueCard"></div>
+    </section>
+
+    <section id="stories" class="block">
+      <div class="block-head">
+        <h2>Top stories</h2>
+        <div class="filters" id="filters" role="tablist" aria-label="Sections"></div>
+      </div>
+      <div class="stories" id="storyGrid"></div>
+    </section>
+
+    <section id="crew" class="block">
+      <div class="block-head"><h2>The crew</h2><span class="count" id="crewCount"></span></div>
+      <div class="crew" id="crewGrid"></div>
+    </section>
+
+    <section id="contact" class="block">
+      <div class="glass-card tip">
+        <div>
+          <h2>Got a story?</h2>
+          <p id="tipText"></p>
+        </div>
+        <a class="btn solid" id="tipLink" href="#">Send a tip</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> EIS NOW</span>
+    <span class="foot-right">Made by students, for students. <button class="editor-btn" type="button" data-desk>Editor</button></span>
+  </footer>
+
+  <nav class="bnav" id="bnav"></nav>
+
+  <div class="sheet" id="reader" hidden>
+    <div class="sheet-shade" data-close></div>
+    <article class="sheet-card reader" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+      <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+      <div id="readerBody"></div>
+    </article>
+  </div>
+
+  <div class="sheet" id="case" hidden>
+    <div class="sheet-shade" data-close></div>
+    <section class="sheet-card casefile" role="dialog" aria-modal="true" aria-label="Case file">
+      <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+      <p class="case-head">CASE FILE <span>// RESTRICTED</span></p>
+      <p class="case-hint" id="caseHint"></p>
+      <form class="case-form" id="caseForm" autocomplete="off">
+        <input id="casePass" type="text" spellcheck="false" placeholder="PASSWORD" aria-label="Password">
+        <button class="btn solid" type="submit">Open</button>
+      </form>
+      <p class="case-msg" id="caseMsg" role="status"></p>
+      <pre class="case-body" id="caseBody" hidden></pre>
+    </section>
+  </div>
+
+  <div class="sheet" id="desk" hidden></div>
+  <div class="toast" id="toast" role="status" hidden></div>
+
+</body>
+</html>
